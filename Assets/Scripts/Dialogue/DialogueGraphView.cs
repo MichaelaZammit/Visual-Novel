@@ -10,12 +10,17 @@ public class DialogueGraphView : GraphView
     private readonly Vector2 defaultNodeSize = new Vector2();
     public DialogueGraphView()
     {
+        SetupZoom(ContentZoomer.DefaultMinScale, ContentZoomer.DefaultMaxScale);
+        
         this.AddManipulator(new ContentDragger());
         this.AddManipulator(new SelectionDragger());
         this.AddManipulator(new RectangleSelector());
 
-        AddElement(GenerateEntryPointNode());
+        var grid = new GridBackground();
+        Insert(0, grid);
+        grid.StretchToParentSize();
         
+        AddElement(GenerateEntryPointNode());
     }
 
     public override List<Port> GetCompatiblePorts(Port startPort, NodeAdapter nodeAdapter)
@@ -72,9 +77,30 @@ public class DialogueGraphView : GraphView
         var inputPort = GeneratePort(dialogueNode, Direction.Input, Port.Capacity.Multi);
         inputPort.portName = "Input";
         dialogueNode.inputContainer.Add(inputPort);
+
+        var button = new Button(clickEvent: () =>
+        {
+            AddChoicePort(dialogueNode);
+        });
+        button.text = "New Choice";
+        dialogueNode.titleContainer.Add(button);
+        
         dialogueNode.RefreshExpandedState();
         dialogueNode.RefreshPorts();
         dialogueNode.SetPosition(new Rect(Vector2.zero, defaultNodeSize));
         return dialogueNode;
+    }
+
+    private void AddChoicePort(DialogueNode dialogueNode)
+    {
+        var generatePort = GeneratePort(dialogueNode, Direction.Output);
+
+        var outputPortCount = dialogueNode.outputContainer.Query(name: "Connector").ToList().Count;
+        generatePort.portName = $"Choice {outputPortCount}";
+        
+        
+        dialogueNode.outputContainer.Add(generatePort);
+        dialogueNode.RefreshPorts();
+        dialogueNode.RefreshExpandedState();
     }
 }
