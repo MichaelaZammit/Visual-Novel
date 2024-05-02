@@ -10,6 +10,7 @@ public class DialogueGraphView : GraphView
     private readonly Vector2 defaultNodeSize = new Vector2();
     public DialogueGraphView()
     {
+        styleSheets.Add(Resources.Load<StyleSheet>("DialogueGraph"));
         SetupZoom(ContentZoomer.DefaultMinScale, ContentZoomer.DefaultMaxScale);
         
         this.AddManipulator(new ContentDragger());
