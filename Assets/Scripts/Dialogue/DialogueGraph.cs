@@ -46,8 +46,8 @@ public class DialogueGraphEditor : EditorWindow
         fileNameTextField.RegisterValueChangedCallback(evt => _fileName = evt.newValue);
         toolbar.Add(fileNameTextField);
 
-        toolbar.Add(new Button(()=>SaveData()){text = "Save Data"});
-        toolbar.Add(new Button(()=>LoadData()){text = "Load Data"});
+        toolbar.Add(new Button(()=>RequestDataOperation(true)){text = "Save Data"});
+        toolbar.Add(new Button(()=>RequestDataOperation(false)){text = "Load Data"});
         
         var nodeCreateButton = new Button(() =>
         {
@@ -60,14 +60,21 @@ public class DialogueGraphEditor : EditorWindow
         rootVisualElement.Add(toolbar);
     }
 
-    private void LoadData()
+    private void RequestDataOperation(bool save)
     {
-        throw new NotImplementedException();
-    }
+        if (string.IsNullOrEmpty(_fileName))
+        {
+            EditorUtility.DisplayDialog("Invalid file name!", "Please enter a valid file name.", "Ok");
+            return;
+        }
 
-    private void SaveData()
-    {
-        throw new NotImplementedException();
+        var saveUtility = GraphSaveUtility.GetInstance(_graphView);
+        if(save)
+            saveUtility.SaveGraph(_fileName);
+        else
+        {
+            saveUtility.LoadGraph(_fileName);
+        }
     }
 
     private void OnDisable()
