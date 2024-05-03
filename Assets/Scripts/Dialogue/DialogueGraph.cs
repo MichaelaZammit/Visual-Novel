@@ -9,7 +9,8 @@ using UnityEngine.UIElements;
 
 public class DialogueGraphEditor : EditorWindow
 {
-    [SerializeField] private DialogueGraphView _graphView;
+    private DialogueGraphView _graphView;
+    private string _fileName = "New Narrative";
 
     [MenuItem("Graph/Dialogue Graph")]
     public static void OpenDialogueGraphWindow()
@@ -38,6 +39,15 @@ public class DialogueGraphEditor : EditorWindow
     private void GenerateToolbar()
     {
         var toolbar = new Toolbar();
+
+        var fileNameTextField = new TextField("File Name");
+        fileNameTextField.SetValueWithoutNotify(_fileName);
+        fileNameTextField.MarkDirtyRepaint();
+        fileNameTextField.RegisterValueChangedCallback(evt => _fileName = evt.newValue);
+        toolbar.Add(fileNameTextField);
+
+        toolbar.Add(new Button(()=>SaveData()){text = "Save Data"});
+        toolbar.Add(new Button(()=>LoadData()){text = "Load Data"});
         
         var nodeCreateButton = new Button(() =>
         {
@@ -49,7 +59,17 @@ public class DialogueGraphEditor : EditorWindow
         
         rootVisualElement.Add(toolbar);
     }
-    
+
+    private void LoadData()
+    {
+        throw new NotImplementedException();
+    }
+
+    private void SaveData()
+    {
+        throw new NotImplementedException();
+    }
+
     private void OnDisable()
     {
         rootVisualElement.Remove(_graphView);
