@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class CustomizableElement : MonoBehaviour
 {
@@ -53,6 +54,15 @@ public class CustomizableElement : MonoBehaviour
         return _colorOptions[ColorIndex];
     }
 
+    [ContextMenu("Randomize")]
+    public void Randomize()
+    {
+        SpriteIndex = Random.Range(0, _spriteOptions.Count - 1);
+        ColorIndex = Random.Range(0, _colorOptions.Count - 1);
+        UpdateSprite();
+        UpdateColor();
+    }
+    
     private void UpdateSprite()
     {
         SpriteIndex = Mathf.Clamp(SpriteIndex, 0, _spriteOptions.Count - 1);
