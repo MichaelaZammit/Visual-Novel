@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class CustomizableElement : MonoBehaviour
@@ -23,7 +25,7 @@ public class CustomizableElement : MonoBehaviour
     public PositionedSprite NextSprite()
     {
         SpriteIndex = Mathf.Min(SpriteIndex + 1,_spriteOptions.Count -1);
-        //Update Sprites
+        UpdateSprite();
         return _spriteOptions[SpriteIndex];
     }
 
@@ -31,8 +33,24 @@ public class CustomizableElement : MonoBehaviour
     public PositionedSprite PreviousSprite()
     {
         SpriteIndex = Mathf.Max(SpriteIndex - 1,0);
-        //Update Sprites
+        UpdateSprite();
         return _spriteOptions[SpriteIndex];
+    }
+
+    [ContextMenu("Next Color")] 
+    public Color NextColor()
+    {
+        ColorIndex = Mathf.Min(ColorIndex + 1,_colorOptions.Count -1);
+        UpdateColor();
+        return _colorOptions[ColorIndex];
+    }
+
+    [ContextMenu("Previous Color")]
+    public Color PreviousColor()
+    {
+        ColorIndex = Mathf.Max(ColorIndex - 1, 0);
+        UpdateColor();
+        return _colorOptions[ColorIndex];
     }
 
     private void UpdateSprite()
@@ -42,4 +60,9 @@ public class CustomizableElement : MonoBehaviour
         _spriteRenderer.sprite = positionedSprite.Sprite;
         transform.localPosition = positionedSprite.PositionModifier;
     }
+
+    private void UpdateColor()
+    {
+        _spriteRenderer.color = _colorOptions[ColorIndex];  
+    } 
 }
