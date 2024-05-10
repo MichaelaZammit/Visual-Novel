@@ -8,7 +8,10 @@ using UnityEngine.UIElements;
 
 public class DialogueGraphView : GraphView
 {
-    public readonly Vector2 defaultNodeSize = new Vector2();
+    public readonly Vector2 defaultNodeSize = new Vector2(150, 200);
+
+    private NodeSearchWindow _searchWindow;
+    
     public DialogueGraphView()
     {
         styleSheets.Add(Resources.Load<StyleSheet>("DialogueGraph"));
@@ -23,6 +26,14 @@ public class DialogueGraphView : GraphView
         grid.StretchToParentSize();
         
         AddElement(GenerateEntryPointNode());
+        AddSearchWindow();
+    }
+
+    private void AddSearchWindow()
+    {
+        _searchWindow = ScriptableObject.CreateInstance<NodeSearchWindow>();
+        nodeCreationRequest = context =>
+            SearchWindow.Open(new SearchWindowContext(context.screenMousePosition), _searchWindow);
     }
 
     public override List<Port> GetCompatiblePorts(Port startPort, NodeAdapter nodeAdapter)
