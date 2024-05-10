@@ -56,6 +56,9 @@ public class DialogueGraphView : GraphView
         generatePort.portName = "Next";
         node.outputContainer.Add(generatePort);
         
+        node.capabilities &= ~Capabilities.Movable;
+        node.capabilities &= ~Capabilities.Deletable;
+        
         node.RefreshExpandedState();
         node.RefreshPorts();
         
@@ -80,12 +83,24 @@ public class DialogueGraphView : GraphView
         inputPort.portName = "Input";
         dialogueNode.inputContainer.Add(inputPort);
 
+        dialogueNode.styleSheets.Add(Resources.Load<StyleSheet>("Node"));
+        
         var button = new Button(clickEvent: () =>
         {
             AddChoicePort(dialogueNode);
         });
         button.text = "New Choice";
         dialogueNode.titleContainer.Add(button);
+
+        var textField = new TextField(string.Empty);
+        textField.RegisterValueChangedCallback(evt =>
+        {
+            dialogueNode.DialogueText = evt.newValue;
+            dialogueNode.title = evt.newValue;
+        });
+        
+        textField.SetValueWithoutNotify(dialogueNode.title);
+        dialogueNode.mainContainer.Add(textField);
         
         dialogueNode.RefreshExpandedState();
         dialogueNode.RefreshPorts();

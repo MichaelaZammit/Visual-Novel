@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEditor;
+using UnityEditor.Experimental.GraphView;
 using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -23,6 +24,7 @@ public class DialogueGraphEditor : EditorWindow
     {
         ConstructGraphView();
         GenerateToolbar();
+        GenerateMiniMap();
     }
 
     private void ConstructGraphView()
@@ -59,6 +61,13 @@ public class DialogueGraphEditor : EditorWindow
         
         rootVisualElement.Add(toolbar);
     }
+    
+    private void GenerateMiniMap()
+    {
+        var miniMap = new MiniMap{anchored = true};
+        miniMap.SetPosition(new Rect(10, 30, 200, 140));
+        _graphView.Add(miniMap);
+    }
 
     private void RequestDataOperation(bool save)
     {
@@ -81,7 +90,5 @@ public class DialogueGraphEditor : EditorWindow
     {
         rootVisualElement.Remove(_graphView);
     }
-    
-    
 }
 
