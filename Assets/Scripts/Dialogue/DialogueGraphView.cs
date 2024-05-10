@@ -1,13 +1,14 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UIElements;
 
 public class DialogueGraphView : GraphView
 {
-    private readonly Vector2 defaultNodeSize = new Vector2();
+    public readonly Vector2 defaultNodeSize = new Vector2();
     public DialogueGraphView()
     {
         styleSheets.Add(Resources.Load<StyleSheet>("DialogueGraph"));
@@ -126,6 +127,17 @@ public class DialogueGraphView : GraphView
 
     private void RemovePort(DialogueNode dialogueNode, Port generatePort)
     {
-        throw new NotImplementedException();
+        var targetEdge = edges.ToList().Where(x =>x.output.portName == generatePort.portName && x.output.node == generatePort.node);
+        
+        if(!targetEdge.Any()) return;
+        {
+            var edge = targetEdge.First();
+            edge.input.Disconnect(edge);
+            RemoveElement(targetEdge.First());
+        }
+
+        dialogueNode.outputContainer.Remove(generatePort);
+        dialogueNode.RefreshPorts();
+        dialogueNode.RefreshExpandedState();
     }
 }
