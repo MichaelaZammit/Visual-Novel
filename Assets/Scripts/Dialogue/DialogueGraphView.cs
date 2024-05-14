@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEditor;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -12,7 +13,7 @@ public class DialogueGraphView : GraphView
 
     private NodeSearchWindow _searchWindow;
     
-    public DialogueGraphView()
+    public DialogueGraphView(EditorWindow editorWindow)
     {
         styleSheets.Add(Resources.Load<StyleSheet>("DialogueGraph"));
         SetupZoom(ContentZoomer.DefaultMinScale, ContentZoomer.DefaultMaxScale);
@@ -26,12 +27,13 @@ public class DialogueGraphView : GraphView
         grid.StretchToParentSize();
         
         AddElement(GenerateEntryPointNode());
-        AddSearchWindow();
+        AddSearchWindow(editorWindow);
     }
 
-    private void AddSearchWindow()
+    private void AddSearchWindow(EditorWindow editorWindow)
     {
         _searchWindow = ScriptableObject.CreateInstance<NodeSearchWindow>();
+        _searchWindow.Init(editorWindow,this);
         nodeCreationRequest = context =>
             SearchWindow.Open(new SearchWindowContext(context.screenMousePosition), _searchWindow);
     }
@@ -77,12 +79,12 @@ public class DialogueGraphView : GraphView
         return node;
     }
 
-    public void CreateNode(string nodeName)
+    public void CreateNode(string nodeName, Vector2 position)
     {
-        AddElement(CreateDialogueNode(nodeName));
+        AddElement(CreateDialogueNode(nodeName,position));
     }
     
-    public DialogueNode CreateDialogueNode(string nodeName)
+    public DialogueNode CreateDialogueNode(string nodeName, Vector2 position)
     {
         var dialogueNode = new DialogueNode
         {
@@ -115,7 +117,8 @@ public class DialogueGraphView : GraphView
         
         dialogueNode.RefreshExpandedState();
         dialogueNode.RefreshPorts();
-        dialogueNode.SetPosition(new Rect(Vector2.zero, defaultNodeSize));
+        dialogueNode.SetPosition(new Rect(position, defaultNodeSize));
+        
         return dialogueNode;
     }
 

@@ -1,0 +1,363 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 031484a57522d439d80d108d1dd90a6f, type: 3}
+  m_Name: New Narrative
+  m_EditorClassIdentifier: 
+  NodeLinks:
+  - BaseNodeGuid: 4fbd3ed7-f93d-47d8-853c-df9844a98739
+    PortName: Next
+    TargetNodeGuid: 19a0dd16-1519-4f54-bba0-8f82debf2439
+    BaseNodeGUID: 
+  - BaseNodeGuid: 19a0dd16-1519-4f54-bba0-8f82debf2439
+    PortName: 'Alone in my room, the only light comes from the laptop in front of
+      me. '
+    TargetNodeGuid: e46695c0-78bb-464a-998f-ebe43cb53086
+    BaseNodeGUID: 
+  - BaseNodeGuid: e46695c0-78bb-464a-998f-ebe43cb53086
+    PortName: I was just scrolling through social media when my laptop froze, and
+      a pop-up appeared on my screen.
+    TargetNodeGuid: 4161179f-8d4a-478f-8de5-7f44d741fd1b
+    BaseNodeGUID: 
+  - BaseNodeGuid: 4161179f-8d4a-478f-8de5-7f44d741fd1b
+    PortName: This pop-up did not have any exit buttons.
+    TargetNodeGuid: ebf383b5-36f5-4f0d-a56b-4f997cd13bcd
+    BaseNodeGUID: 
+  - BaseNodeGuid: ebf383b5-36f5-4f0d-a56b-4f997cd13bcd
+    PortName: I noticed that it looked more like a messaging app than an ad.
+    TargetNodeGuid: 066b8a32-4d36-4e1c-bcdb-7d2dc0f4b0bc
+    BaseNodeGUID: 
+  - BaseNodeGuid: 066b8a32-4d36-4e1c-bcdb-7d2dc0f4b0bc
+    PortName: I looked closer and saw three dots moving as if someone were going
+      to text.
+    TargetNodeGuid: 4e555491-12cf-4070-aa8d-52a5a29c1cdb
+    BaseNodeGUID: 
+  - BaseNodeGuid: 4e555491-12cf-4070-aa8d-52a5a29c1cdb
+    PortName: Hello
+    TargetNodeGuid: 13e8e7a3-8582-4c7b-ab97-076ba2d3aa8a
+    BaseNodeGUID: 
+  - BaseNodeGuid: 13e8e7a3-8582-4c7b-ab97-076ba2d3aa8a
+    PortName: Hey!
+    TargetNodeGuid: aa8459bb-8b3c-43dd-b0d7-5c583842e388
+    BaseNodeGUID: 
+  - BaseNodeGuid: aa8459bb-8b3c-43dd-b0d7-5c583842e388
+    PortName: Hello?
+    TargetNodeGuid: 22df4636-ccc2-45b0-b892-665ae69ca56d
+    BaseNodeGUID: 
+  - BaseNodeGuid: 22df4636-ccc2-45b0-b892-665ae69ca56d
+    PortName: I Know You are Seeing the Messages!!!
+    TargetNodeGuid: d57031e6-65ed-4006-a1d4-a93ff2211696
+    BaseNodeGUID: 
+  - BaseNodeGuid: d57031e6-65ed-4006-a1d4-a93ff2211696
+    PortName: Respond
+    TargetNodeGuid: 08b0fb80-4e84-4e1e-9f30-d09ba96e9683
+    BaseNodeGUID: 
+  - BaseNodeGuid: 08b0fb80-4e84-4e1e-9f30-d09ba96e9683
+    PortName: WHO ARE YOU? What the FUCK did YOU do to my laptop? Did YOU hack me?
+    TargetNodeGuid: 36173c3b-e9a8-4c65-a18a-6c3a3cfad599
+    BaseNodeGUID: 
+  - BaseNodeGuid: 36173c3b-e9a8-4c65-a18a-6c3a3cfad599
+    PortName: Now you respond...
+    TargetNodeGuid: 15517c5b-441c-4334-9795-9e35bc1dcd2d
+    BaseNodeGUID: 
+  - BaseNodeGuid: 15517c5b-441c-4334-9795-9e35bc1dcd2d
+    PortName: Answer me!?!
+    TargetNodeGuid: a5db1998-b542-47c5-8fdf-038439b22af4
+    BaseNodeGUID: 
+  - BaseNodeGuid: a5db1998-b542-47c5-8fdf-038439b22af4
+    PortName: I am a demon, and I have chosen you to carry out my will. I coded software
+      and installed it on your laptop so I could message you.
+    TargetNodeGuid: dcfdc922-00e4-42ca-9b09-2a016cba60ba
+    BaseNodeGUID: 
+  - BaseNodeGuid: dcfdc922-00e4-42ca-9b09-2a016cba60ba
+    PortName: WTF! So, you were in my room?
+    TargetNodeGuid: 658b0a81-c59a-4afa-b719-a090557fcec5
+    BaseNodeGUID: 
+  - BaseNodeGuid: 658b0a81-c59a-4afa-b719-a090557fcec5
+    PortName: NO...
+    TargetNodeGuid: 71d26e5c-3bd7-4c79-bd27-00a0889878a9
+    BaseNodeGUID: 
+  - BaseNodeGuid: 71d26e5c-3bd7-4c79-bd27-00a0889878a9
+    PortName: I did it from my room.
+    TargetNodeGuid: 1e789409-f76e-43b4-af88-1d9ccd2fc824
+    BaseNodeGUID: 
+  - BaseNodeGuid: 1e789409-f76e-43b4-af88-1d9ccd2fc824
+    PortName: Wait...
+    TargetNodeGuid: 06a67b71-1476-43b4-8ca8-f6f8dcc8990e
+    BaseNodeGUID: 
+  - BaseNodeGuid: 06a67b71-1476-43b4-8ca8-f6f8dcc8990e
+    PortName: You say that you are a demon
+    TargetNodeGuid: cb3783fc-1ca5-43c3-915a-5d993a5ce6b3
+    BaseNodeGUID: 
+  - BaseNodeGuid: cb3783fc-1ca5-43c3-915a-5d993a5ce6b3
+    PortName: Yes...and?
+    TargetNodeGuid: 57b0ba65-6f17-4120-ab0b-9dff5e471910
+    BaseNodeGUID: 
+  - BaseNodeGuid: 57b0ba65-6f17-4120-ab0b-9dff5e471910
+    PortName: I already told you that I am a demon, and I have chosen you to carry
+      out my will.
+    TargetNodeGuid: 44671403-783b-41f3-8d66-eb4550d242af
+    BaseNodeGUID: 
+  - BaseNodeGuid: 44671403-783b-41f3-8d66-eb4550d242af
+    PortName: And YOU, mortal, are merely a pawn in my game.
+    TargetNodeGuid: 8b16b882-30ce-4d6f-823f-728b0a42ad65
+    BaseNodeGUID: 
+  - BaseNodeGuid: 8b16b882-30ce-4d6f-823f-728b0a42ad65
+    PortName: "I don\u2019t believe you. What do you want from me? "
+    TargetNodeGuid: 38ab1a45-1994-467d-b4e2-f7bf585a68bb
+    BaseNodeGUID: 
+  - BaseNodeGuid: 38ab1a45-1994-467d-b4e2-f7bf585a68bb
+    PortName: I crave entertainment, mortal. And you shall provide it. I have devised
+      a series of dares for you to undertake. Fail, and suffer the consequences.
+    TargetNodeGuid: ade5678d-ae8d-4709-a131-92fb671a2f56
+    BaseNodeGUID: 
+  - BaseNodeGuid: ade5678d-ae8d-4709-a131-92fb671a2f56
+    PortName: What if I don't do them?
+    TargetNodeGuid: db7dccf2-c508-45e9-a88b-80dc3e4e29de
+    BaseNodeGUID: 
+  - BaseNodeGuid: db7dccf2-c508-45e9-a88b-80dc3e4e29de
+    PortName: 'You cannot reject the offer. This is not a question; it is something
+      you have to do! '
+    TargetNodeGuid: c155689f-5722-4109-98bc-82cf71bb1e3a
+    BaseNodeGUID: 
+  - BaseNodeGuid: c155689f-5722-4109-98bc-82cf71bb1e3a
+    PortName: His messages were different. There was something dark about them, something
+      that made my heart race with fear.
+    TargetNodeGuid: af0faaa6-ff3b-431f-9872-72c1558bd3bb
+    BaseNodeGUID: 
+  - BaseNodeGuid: af0faaa6-ff3b-431f-9872-72c1558bd3bb
+    PortName: 'If I do these dares you are talking about, what do I need to do? '
+    TargetNodeGuid: ad70b0ce-5866-4921-aecb-9498b5df0d76
+    BaseNodeGUID: 
+  - BaseNodeGuid: ad70b0ce-5866-4921-aecb-9498b5df0d76
+    PortName: The time will come when I will send you a text, and you have to do
+      the dare at that point in time.
+    TargetNodeGuid: 542740a6-1b18-43a0-9cd8-1ea5fb95ff75
+    BaseNodeGUID: 
+  - BaseNodeGuid: 542740a6-1b18-43a0-9cd8-1ea5fb95ff75
+    PortName: What if I don't do it?
+    TargetNodeGuid: ff8364bc-6945-43b0-8bf6-5f18b75c9bdc
+    BaseNodeGUID: 
+  - BaseNodeGuid: 542740a6-1b18-43a0-9cd8-1ea5fb95ff75
+    PortName: I am not going to do it.
+    TargetNodeGuid: ff8364bc-6945-43b0-8bf6-5f18b75c9bdc
+    BaseNodeGUID: 
+  - BaseNodeGuid: ff8364bc-6945-43b0-8bf6-5f18b75c9bdc
+    PortName: "You don\u2019t really want to know what will happen to you if you
+      don\u2019t do it."
+    TargetNodeGuid: 9fdcc94e-49ad-4b36-a630-1c7d55eeb97b
+    BaseNodeGUID: 
+  - BaseNodeGuid: 9fdcc94e-49ad-4b36-a630-1c7d55eeb97b
+    PortName: Well...
+    TargetNodeGuid: 70bfe792-ac57-43b2-8f90-0990b02d8494
+    BaseNodeGUID: 
+  - BaseNodeGuid: 70bfe792-ac57-43b2-8f90-0990b02d8494
+    PortName: Now we will see
+    TargetNodeGuid: cd52e39a-b319-4ea1-9981-8995169dbc77
+    BaseNodeGUID: 
+  - BaseNodeGuid: cd52e39a-b319-4ea1-9981-8995169dbc77
+    PortName: You WILL do them It is not an option!
+    TargetNodeGuid: 7c7a1b4d-8a58-4d42-aafd-7e751927eecf
+    BaseNodeGUID: 
+  - BaseNodeGuid: 7c7a1b4d-8a58-4d42-aafd-7e751927eecf
+    PortName: "We will see! And don\u2019t talk to me like that."
+    TargetNodeGuid: 1a56cd78-d632-457e-9bb0-b7f361316492
+    BaseNodeGUID: 
+  - BaseNodeGuid: 1a56cd78-d632-457e-9bb0-b7f361316492
+    PortName: What if I want to?
+    TargetNodeGuid: 3aa31f0a-6d86-49a9-971a-62a6b04448f5
+    BaseNodeGUID: 
+  - BaseNodeGuid: 3aa31f0a-6d86-49a9-971a-62a6b04448f5
+    PortName: "You\u2019re not the boss of me!"
+    TargetNodeGuid: e2dec4b2-3a91-43ed-8d7f-7f8d22bc0cf8
+    BaseNodeGUID: 
+  - BaseNodeGuid: e2dec4b2-3a91-43ed-8d7f-7f8d22bc0cf8
+    PortName: You will find out soon if I am not the boss or not!
+    TargetNodeGuid: d3a1374c-7a15-46f5-b04c-c1bda77d9a89
+    BaseNodeGUID: 
+  - BaseNodeGuid: d3a1374c-7a15-46f5-b04c-c1bda77d9a89
+    PortName: We shall see ;)
+    TargetNodeGuid: 855af7fd-6259-4343-9e52-49777b56a55c
+    BaseNodeGUID: 
+  - BaseNodeGuid: 855af7fd-6259-4343-9e52-49777b56a55c
+    PortName: It is very late, I need to go to sleep. Talk to you tomorrow, Good
+      night.
+    TargetNodeGuid: 8973b583-3291-4cc6-baa8-11440d2f26e8
+    BaseNodeGUID: 
+  - BaseNodeGuid: 8973b583-3291-4cc6-baa8-11440d2f26e8
+    PortName: Good night, poockie!
+    TargetNodeGuid: 652f2710-06b1-4de2-b451-592dcb25a6ee
+    BaseNodeGUID: 
+  - BaseNodeGuid: 652f2710-06b1-4de2-b451-592dcb25a6ee
+    PortName: "The next day, I went to school, and I spent the whole day thinking
+      about him. I started smiling without even realizing it\u2014that is, until
+      my classmate pointed it out. "
+    TargetNodeGuid: a9c3b5b0-d664-4180-88f4-f118f2aae92b
+    BaseNodeGUID: 
+  - BaseNodeGuid: a9c3b5b0-d664-4180-88f4-f118f2aae92b
+    PortName: "When I went home, I couldn\u2019t wait to message him again. Before
+      I knew it, the laptop was open, sending another message."
+    TargetNodeGuid: 7e0eb057-aed4-41a6-b773-3adda828a791
+    BaseNodeGUID: 
+  - BaseNodeGuid: 7e0eb057-aed4-41a6-b773-3adda828a791
+    PortName: Hey! Hello...
+    TargetNodeGuid: 8d699015-2b0e-44ec-bc82-fe11125c680c
+    BaseNodeGUID: 
+  - BaseNodeGuid: 8d699015-2b0e-44ec-bc82-fe11125c680c
+    PortName: "What\u2019s up?"
+    TargetNodeGuid: dd8054e1-58d7-420d-90b1-e368cd2c0e18
+    BaseNodeGUID: 
+  - BaseNodeGuid: dd8054e1-58d7-420d-90b1-e368cd2c0e18
+    PortName: Calm down, I am here!
+    TargetNodeGuid: 6181de77-c24c-4db7-ac00-3001b466d5bc
+    BaseNodeGUID: 
+  DialogueNodeData:
+  - GUID: 
+    DialogueText: Dialogue Node
+    Position: {x: 282, y: 200}
+  - GUID: 
+    DialogueText: Dialogue Node
+    Position: {x: 907, y: 200}
+  - GUID: 
+    DialogueText: Dialogue Node
+    Position: {x: 1698.5, y: 200}
+  - GUID: 
+    DialogueText: Dialogue Node
+    Position: {x: 2165.5, y: 200}
+  - GUID: 
+    DialogueText: Dialogue Node
+    Position: {x: 2753.5, y: 200}
+  - GUID: 
+    DialogueText: Unknown
+    Position: {x: 3409.5, y: 200}
+  - GUID: 
+    DialogueText: Unknown
+    Position: {x: 3700, y: 200}
+  - GUID: 
+    DialogueText: Unknown
+    Position: {x: 4026.5, y: 200}
+  - GUID: 
+    DialogueText: Unknown
+    Position: {x: 4330, y: 200}
+  - GUID: 
+    DialogueText: Unknown
+    Position: {x: 4826.5, y: 200}
+  - GUID: 
+    DialogueText: You
+    Position: {x: 5115.5, y: 200}
+  - GUID: 
+    DialogueText: Damon
+    Position: {x: 5831.5, y: 200}
+  - GUID: 
+    DialogueText: You
+    Position: {x: 6203, y: 200}
+  - GUID: 
+    DialogueText: Unknown
+    Position: {x: 6543, y: 200}
+  - GUID: 
+    DialogueText: You
+    Position: {x: 7514.5, y: 200}
+  - GUID: 
+    DialogueText: Unknown
+    Position: {x: 7964.5, y: 200}
+  - GUID: 
+    DialogueText: Unknown
+    Position: {x: 8261, y: 200}
+  - GUID: 
+    DialogueText: You
+    Position: {x: 8621.5, y: 200}
+  - GUID: 
+    DialogueText: You
+    Position: {x: 8916.5, y: 200}
+  - GUID: 
+    DialogueText: Unknown
+    Position: {x: 9317, y: 200}
+  - GUID: 
+    DialogueText: Unknown
+    Position: {x: 9617, y: 200}
+  - GUID: 
+    DialogueText: Unknown
+    Position: {x: 10313.5, y: 200}
+  - GUID: 
+    DialogueText: You
+    Position: {x: 10852.5, y: 200}
+  - GUID: 
+    DialogueText: Unknown
+    Position: {x: 11394.5, y: 200}
+  - GUID: 
+    DialogueText: You
+    Position: {x: 12412.5, y: 200}
+  - GUID: 
+    DialogueText: Unknown
+    Position: {x: 12783, y: 200}
+  - GUID: 
+    DialogueText: My POV
+    Position: {x: 13574, y: 328}
+  - GUID: 
+    DialogueText: You
+    Position: {x: 14465, y: 328}
+  - GUID: 
+    DialogueText: Unknown
+    Position: {x: 15042.5, y: 328}
+  - GUID: 
+    DialogueText: You
+    Position: {x: 15796, y: 328}
+  - GUID: 
+    DialogueText: Dialogue Node
+    Position: {x: 16201.5, y: 328}
+  - GUID: 
+    DialogueText: You
+    Position: {x: 16850.5, y: 328}
+  - GUID: 
+    DialogueText: You
+    Position: {x: 17133.5, y: 328}
+  - GUID: 
+    DialogueText: Unknown
+    Position: {x: 17500, y: 328}
+  - GUID: 
+    DialogueText: You
+    Position: {x: 17955.5, y: 328}
+  - GUID: 
+    DialogueText: Unknown
+    Position: {x: 18443, y: 328}
+  - GUID: 
+    DialogueText: You
+    Position: {x: 18791, y: 328}
+  - GUID: 
+    DialogueText: Unknown
+    Position: {x: 19222.5, y: 328}
+  - GUID: 
+    DialogueText: You
+    Position: {x: 19763, y: 328}
+  - GUID: 
+    DialogueText: You
+    Position: {x: 20126, y: 328}
+  - GUID: 
+    DialogueText: Unknown
+    Position: {x: 20760, y: 328}
+  - GUID: 
+    DialogueText: My POV
+    Position: {x: 21137.5, y: 328}
+  - GUID: 
+    DialogueText: My POV
+    Position: {x: 22232, y: 328}
+  - GUID: 
+    DialogueText: You
+    Position: {x: 23136, y: 328}
+  - GUID: 
+    DialogueText: You
+    Position: {x: 23457, y: 328}
+  - GUID: 
+    DialogueText: Unknown
+    Position: {x: 23777, y: 328}
+  - GUID: 
+    DialogueText: Unknown
+    Position: {x: 24140.5, y: 328}

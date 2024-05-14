@@ -113,7 +113,8 @@ public class GraphSaveUtility
     {
         foreach (var nodeData in _containerCache.DialogueNodeData)
         {
-            var tempNode = _targetGraphView.CreateDialogueNode(nodeData.DialogueText);
+            // We pass position later on, so we can just use Vector2 Zero for now as position without nodes
+            var tempNode = _targetGraphView.CreateDialogueNode(nodeData.DialogueText, Vector2.zero);
             tempNode.GUID = nodeData.Guid;
             _targetGraphView.AddElement(tempNode);
 

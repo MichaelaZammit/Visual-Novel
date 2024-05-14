@@ -29,7 +29,7 @@ public class DialogueGraphEditor : EditorWindow
 
     private void ConstructGraphView()
     {
-        _graphView = new DialogueGraphView
+        _graphView = new DialogueGraphView(this)
         {
             name = "Dialogue Graph"
         };
@@ -51,21 +51,15 @@ public class DialogueGraphEditor : EditorWindow
         toolbar.Add(new Button(()=>RequestDataOperation(true)){text = "Save Data"});
         toolbar.Add(new Button(()=>RequestDataOperation(false)){text = "Load Data"});
         
-        var nodeCreateButton = new Button(() =>
-        {
-            _graphView.CreateNode("Dialogue Node");
-        });
-        
-        nodeCreateButton.text = "Create Node";
-        toolbar.Add(nodeCreateButton);
-        
         rootVisualElement.Add(toolbar);
     }
     
     private void GenerateMiniMap()
     {
         var miniMap = new MiniMap{anchored = true};
-        miniMap.SetPosition(new Rect(10, 30, 200, 140));
+        // This will give 10px offset from the left side
+        var cords = _graphView.contentViewContainer.WorldToLocal(new Vector2(this.maxSize.x - 10, 30));
+        miniMap.SetPosition(new Rect(cords.x, cords.y, 200, 140));
         _graphView.Add(miniMap);
     }
 
@@ -91,4 +85,3 @@ public class DialogueGraphEditor : EditorWindow
         rootVisualElement.Remove(_graphView);
     }
 }
-
