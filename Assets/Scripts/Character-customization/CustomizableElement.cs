@@ -73,6 +73,11 @@ public class CustomizableElement : MonoBehaviour
     {
         _spriteOptions[SpriteIndex].PositionModifier = transform.localPosition;
     }
+
+    public CustomizationData GetCustomizationData()
+    {
+        return new CustomizationData(_type, _spriteOptions[SpriteIndex], _spriteRenderer.color);
+    }
     
     private void UpdateSprite()
     {
