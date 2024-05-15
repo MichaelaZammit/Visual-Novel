@@ -5,8 +5,11 @@ using Unity.VisualScripting;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class CustomizableElement : MonoBehaviour, IEnumerable
+public class CustomizableElement : MonoBehaviour
 {
+    [SerializeField] 
+    private CustomizationType _type;
+    
     [SerializeField] 
     private SpriteRenderer _spriteRenderer;
     

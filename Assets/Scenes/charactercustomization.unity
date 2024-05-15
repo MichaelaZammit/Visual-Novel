@@ -1273,6 +1273,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5400701908009807360, guid: e42a4497aa432f946ba128a6f6cc4b77, type: 3}
+      propertyPath: _type
+      value: 
+      objectReference: {fileID: 11400000, guid: fa70642fdffcd2a488e779fe90ef94c6, type: 2}
+    - target: {fileID: 5400701908009807360, guid: e42a4497aa432f946ba128a6f6cc4b77, type: 3}
       propertyPath: ColorIndex
       value: 7
       objectReference: {fileID: 0}
@@ -3022,6 +3026,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 331fb9df9300bbf42bf30e522c980584, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _type: {fileID: 11400000, guid: ecb1429c765046d46958056cf5b66c28, type: 2}
   _spriteRenderer: {fileID: 5343789789227172072}
   _spriteOptions:
   - <Sprite>k__BackingField: {fileID: 1836402039, guid: 292063ddae3ea4d4c9de5fef07a00d77, type: 3}
@@ -3651,6 +3656,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 790924831}
     m_Modifications:
     - target: {fileID: 1231906157113201136, guid: d80553456f2cd4743a55f70ac0626b36, type: 3}
+      propertyPath: _type
+      value: 
+      objectReference: {fileID: 11400000, guid: ee488e056bb1fe744b822548cfbd6ed5, type: 2}
+    - target: {fileID: 1231906157113201136, guid: d80553456f2cd4743a55f70ac0626b36, type: 3}
       propertyPath: ColorIndex
       value: 0
       objectReference: {fileID: 0}
@@ -3829,6 +3838,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5400701908009807360, guid: e42a4497aa432f946ba128a6f6cc4b77, type: 3}
+      propertyPath: _type
+      value: 
+      objectReference: {fileID: 11400000, guid: 24615be577101ad49b0f3496d148bda1, type: 2}
+    - target: {fileID: 5400701908009807360, guid: e42a4497aa432f946ba128a6f6cc4b77, type: 3}
       propertyPath: ColorIndex
       value: 3
       objectReference: {fileID: 0}
@@ -3974,6 +3987,10 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7253137980383616350, guid: 5b2eb958f6676fc4c90d32758005015f, type: 3}
+      propertyPath: _type
+      value: 
+      objectReference: {fileID: 11400000, guid: 5dc09a1f58211bd438080e2f84a5e675, type: 2}
     - target: {fileID: 7253137980383616350, guid: 5b2eb958f6676fc4c90d32758005015f, type: 3}
       propertyPath: ColorIndex
       value: 2
@@ -4195,6 +4212,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2372843827711530844, guid: 0e6d609aeb38b4b44a830831957242fc, type: 3}
+      propertyPath: _type
+      value: 
+      objectReference: {fileID: 11400000, guid: 36abcb66c57f757459b052f936676df1, type: 2}
     - target: {fileID: 3438473448153742261, guid: 0e6d609aeb38b4b44a830831957242fc, type: 3}
       propertyPath: m_Name
       value: blush
