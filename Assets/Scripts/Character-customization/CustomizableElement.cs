@@ -5,7 +5,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class CustomizableElement : MonoBehaviour
+public class CustomizableElement : MonoBehaviour, IEnumerable
 {
     [SerializeField] 
     private SpriteRenderer _spriteRenderer;
@@ -62,9 +62,17 @@ public class CustomizableElement : MonoBehaviour
         UpdateSprite();
         UpdateColor();
     }
+
+    [ContextMenu("Update Position Modifier")]
+    public void UpdateSpritePositionModifier()
+    {
+        _spriteOptions[SpriteIndex].PositionModifier = transform.localPosition;
+    }
     
     private void UpdateSprite()
     {
+        if (_spriteOptions.Count == 0) return;
+
         SpriteIndex = Mathf.Clamp(SpriteIndex, 0, _spriteOptions.Count - 1);
         var positionedSprite = _spriteOptions[SpriteIndex];
         _spriteRenderer.sprite = positionedSprite.Sprite;
@@ -73,6 +81,14 @@ public class CustomizableElement : MonoBehaviour
 
     private void UpdateColor()
     {
-        _spriteRenderer.color = _colorOptions[ColorIndex];  
-    } 
+        if (_colorOptions.Count == 0) return;
+        ColorIndex = Mathf.Clamp(ColorIndex, 0, _colorOptions.Count - 1);
+        var newColor = _colorOptions[ColorIndex];
+        _spriteRenderer.color = newColor;
+    }
+
+    public IEnumerator GetEnumerator()
+    {
+        throw new NotImplementedException();
+    }
 }
