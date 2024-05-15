@@ -57,13 +57,14 @@ public class UI_CustomizationPicker : MonoBehaviour
         });
     }
 
-    private void UpdateSpriteId()
+    public void UpdateSpriteId()
     {
         _spriteId.SetText(_customizableElement.SpriteIndex.ToString().PadLeft(2,'0'));
     }
 
-    private void UpdateColorIcon()
+    public void UpdateColorIcon()
     {
         _colorIcon.color = _customizableElement.CurrentColor;
     }
+    
 }
