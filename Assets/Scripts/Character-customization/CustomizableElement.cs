@@ -22,7 +22,9 @@ public class CustomizableElement : MonoBehaviour, IEnumerable
     [field: SerializeField] 
     public int ColorIndex;
 
-    [ContextMenu("Next Sprite")]
+    public Color CurrentColor => _colorOptions.Count == 0 ? Color.white : _colorOptions[ColorIndex];
+
+        [ContextMenu("Next Sprite")]
     public PositionedSprite NextSprite()
     {
         SpriteIndex = Mathf.Min(SpriteIndex + 1,_spriteOptions.Count -1);
