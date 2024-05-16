@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] private CustomizableElement customizableElement;
+    [SerializeField] public CustomizableElement customizableElement;
 
     private void Start()
     {

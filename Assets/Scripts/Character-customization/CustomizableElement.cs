@@ -32,11 +32,9 @@ public class CustomizableElement : MonoBehaviour
         }
     }
 
-    [SerializeField] 
-    private CustomizationType _type;
+    [SerializeField] public CustomizationType _type;
     
-    [SerializeField] 
-    private SpriteRenderer _spriteRenderer;
+    [SerializeField] public SpriteRenderer _spriteRenderer;
     
     [SerializeField] 
     private List<PositionedSprite> _spriteOptions;
