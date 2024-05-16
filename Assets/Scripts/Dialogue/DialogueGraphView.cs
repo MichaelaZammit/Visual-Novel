@@ -9,7 +9,7 @@ using UnityEngine.UIElements;
 
 public class DialogueGraphView : GraphView
 {
-    public readonly Vector2 defaultNodeSize = new Vector2(200, 150);
+    public readonly Vector2 defaultNodeSize = new Vector2(300, 150);
     public DialogueNode EntryPointNode;
     private NodeSearchWindow _searchWindow;
     
@@ -102,8 +102,10 @@ public class DialogueGraphView : GraphView
         var button = new Button(clickEvent: () =>
         {
             AddChoicePort(dialogueNode);
-        });
-        button.text = "New Choice";
+        })
+        {
+            text = "New Choice"
+        };
         dialogueNode.titleContainer.Add(button);
     
         var textField = new TextField(string.Empty);
