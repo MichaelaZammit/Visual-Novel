@@ -15,4 +15,3 @@ public class StoryScene : ScriptableObject
         public string text;
     }
 }
-

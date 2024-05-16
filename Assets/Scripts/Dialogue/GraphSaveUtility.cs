@@ -23,6 +23,32 @@ public class GraphSaveUtility
         };
     }
 
+    // public void SaveGraph(string fileName)
+    // {
+    //     var dialogueContainerObject = ScriptableObject.CreateInstance<DialogueContainer>();
+    //     if (!SaveNodes(fileName, dialogueContainerObject)) return;
+    //
+    //     if (!AssetDatabase.IsValidFolder("Assets/Resources"))
+    //         AssetDatabase.CreateFolder("Assets", "Resources");
+    //
+    //     UnityEngine.Object loadedAsset =
+    //         AssetDatabase.LoadAssetAtPath($"Assets/Resources/{fileName}.asset", typeof(DialogueContainer));
+    //
+    //     if (loadedAsset == null || !AssetDatabase.Contains(loadedAsset))
+    //     {
+    //         AssetDatabase.CreateAsset(dialogueContainerObject, $"Assets/Resources/{fileName}.asset");
+    //     }
+    //     else
+    //     {
+    //         DialogueContainer container = loadedAsset as DialogueContainer;
+    //         container.NodeLinks = dialogueContainerObject.NodeLinks;
+    //         container.DialogueNodeData = dialogueContainerObject.DialogueNodeData;
+    //         EditorUtility.SetDirty(container);
+    //     }
+    //     
+    //     AssetDatabase.SaveAssets();
+    // }
+    
     public void SaveGraph(string fileName)
     {
         // If there are no edges (no connections) then return
@@ -34,10 +60,10 @@ public class GraphSaveUtility
         {
             var outputNode = connectedPorts[i].output.node as DialogueNode;
             var inputNode = connectedPorts[i].input.node as DialogueNode;
-
+            
             dialogueContainerObject.NodeLinks.Add(new NodeLinkData()
             {
-                BaseNodeGuid = outputNode.GUID,
+                BaseNodeGUID = outputNode.GUID,
                 PortName = connectedPorts[i].output.portName,
                 TargetNodeGuid = inputNode.GUID
             });
@@ -55,10 +81,39 @@ public class GraphSaveUtility
 
         if (!AssetDatabase.IsValidFolder("Assets/Resources"))
             AssetDatabase.CreateFolder("Assets", "Resources");
-
+        
         AssetDatabase.CreateAsset(dialogueContainerObject, $"Assets/Resources/{fileName}.asset");
         AssetDatabase.SaveAssets();
     }
+
+    private bool SaveNodes(string fileName, DialogueContainer dialogueContainerObject)
+        {
+            if (!Edges.Any()) return false;
+            var connectedSockets = Edges.Where(x => x.input.node != null).ToArray();
+            for (var i = 0; i < connectedSockets.Count(); i++)
+            {
+                var outputNode = (connectedSockets[i].output.node as DialogueNode);
+                var inputNode = (connectedSockets[i].input.node as DialogueNode);
+                dialogueContainerObject.NodeLinks.Add(new NodeLinkData
+                {
+                    BaseNodeGUID = outputNode.GUID,
+                    PortName = connectedSockets[i].output.portName,
+                    TargetNodeGuid = inputNode.GUID
+                });
+            }
+
+            foreach (var node in Nodes.Where(node => !node.EntryPoint))
+            {
+                dialogueContainerObject.DialogueNodeData.Add(new DialogueNodeData
+                {
+                    Guid = node.GUID,
+                    DialogueText = node.DialogueText,
+                    Position = node.GetPosition().position
+                });
+            }
+
+            return true;
+        }
 
     public void LoadGraph(string fileName)
     {
@@ -69,28 +124,34 @@ public class GraphSaveUtility
             return;
         }
 
+        _dialogueContainer = _containerCache;
+
         ClearGraph();
         CreateNodes();
         ConnectNodes();
     }
-
+    
     private void ConnectNodes()
     {
         for (var i = 0; i < Nodes.Count; i++)
         {
-            var connections = _containerCache.NodeLinks.Where(x => x.BaseNodeGuid == Nodes[i].GUID).ToList();
-            for (var j = 0; j < connections.Count; j++)
+            var k = i; //Prevent access to modified closure
+            Debug.Log(_dialogueContainer);
+            Debug.Log(_dialogueContainer.NodeLinks);
+            var connections = _dialogueContainer.NodeLinks.Where(x => x.BaseNodeGUID == Nodes[k].GUID).ToList();
+            for (var j = 0; j < connections.Count(); j++)
             {
-                var targetNodeGuid = connections[j].TargetNodeGuid;
-                var targetNode = Nodes.First(x => x.GUID == targetNodeGuid);
-                LinkNodes(Nodes[i].outputContainer[j].Q<Port>(), (Port)targetNode.inputContainer[0]);
-
+                var targetNodeGUID = connections[j].TargetNodeGuid;
+                var targetNode = Nodes.First(x => x.GUID == targetNodeGUID);
+                LinkNodes(Nodes[i].outputContainer[j].Q<Port>(), (Port) targetNode.inputContainer[0]);
+    
                 targetNode.SetPosition(new Rect(
-                    _containerCache.DialogueNodeData.First(x => x.Guid == targetNodeGuid).Position,
+                    _dialogueContainer.DialogueNodeData.First(x => x.Guid == targetNodeGUID).Position,
                     _targetGraphView.defaultNodeSize));
             }
         }
     }
+    
 
     private void LinkNodes(Port output, Port input)
     {
@@ -108,7 +169,7 @@ public class GraphSaveUtility
             _targetGraphView.Add(tempEdge);
         }
     }
-
+    
     private void CreateNodes()
     {
         foreach (var nodeData in _containerCache.DialogueNodeData)
@@ -117,8 +178,8 @@ public class GraphSaveUtility
             var tempNode = _targetGraphView.CreateDialogueNode(nodeData.DialogueText, Vector2.zero);
             tempNode.GUID = nodeData.Guid;
             _targetGraphView.AddElement(tempNode);
-
-            var nodePorts = _containerCache.NodeLinks.Where(x => x.BaseNodeGuid == nodeData.Guid).ToList();
+            
+            var nodePorts = _containerCache.NodeLinks.Where(x => x.BaseNodeGUID == nodeData.Guid).ToList();
             nodePorts.ForEach(x => _targetGraphView.AddChoicePort(tempNode, x.PortName));
         }
     }
@@ -127,7 +188,7 @@ public class GraphSaveUtility
     {
         // Set Entry Points GUID back from the save
         // Discard existing GUID
-        Nodes.Find(x => x.EntryPoint).GUID = _containerCache.NodeLinks[0].BaseNodeGuid;
+        Nodes.Find(x => x.EntryPoint).GUID = _containerCache.NodeLinks[0].BaseNodeGUID;
 
         foreach (var node in Nodes)
         {

@@ -17,7 +17,7 @@ public class DialogueGraphEditor : EditorWindow
     public static void OpenDialogueGraphWindow()
     {
         var window = GetWindow<DialogueGraphEditor>();
-        window.titleContent =  new GUIContent("Dialogue Graph");
+        window.titleContent = new GUIContent("Dialogue Graph");
     }
 
     private void OnEnable()
@@ -48,35 +48,52 @@ public class DialogueGraphEditor : EditorWindow
         fileNameTextField.RegisterValueChangedCallback(evt => _fileName = evt.newValue);
         toolbar.Add(fileNameTextField);
 
-        toolbar.Add(new Button(()=>RequestDataOperation(true)){text = "Save Data"});
-        toolbar.Add(new Button(()=>RequestDataOperation(false)){text = "Load Data"});
-        
+        toolbar.Add(new Button(() => RequestDataOperation(true)) { text = "Save Data" });
+        toolbar.Add(new Button(() => RequestDataOperation(false)) { text = "Load Data" });
+
         rootVisualElement.Add(toolbar);
     }
-    
+
     private void GenerateMiniMap()
     {
-        var miniMap = new MiniMap{anchored = true};
+        var miniMap = new MiniMap { anchored = true };
+        miniMap.SetPosition(new Rect(10, 30, 200, 140));
         // This will give 10px offset from the left side
         var cords = _graphView.contentViewContainer.WorldToLocal(new Vector2(this.maxSize.x - 10, 30));
         miniMap.SetPosition(new Rect(cords.x, cords.y, 200, 140));
         _graphView.Add(miniMap);
     }
 
+    // private void RequestDataOperation(bool save)
+    // {
+    //     if (string.IsNullOrEmpty(_fileName))
+    //     {
+    //         EditorUtility.DisplayDialog("Invalid file name!", "Please enter a valid file name.", "Ok");
+    //         return;
+    //     }
+    //
+    //     var saveUtility = GraphSaveUtility.GetInstance(_graphView);
+    //     if (save)
+    //         saveUtility.SaveGraph(_fileName);
+    //     else
+    //     {
+    //         saveUtility.LoadGraph(_fileName);
+    //     }
+    // }
+    
     private void RequestDataOperation(bool save)
     {
-        if (string.IsNullOrEmpty(_fileName))
+        if (!string.IsNullOrEmpty(_fileName))
         {
-            EditorUtility.DisplayDialog("Invalid file name!", "Please enter a valid file name.", "Ok");
-            return;
+            var saveUtility = GraphSaveUtility.GetInstance(_graphView);
+            if (save)
+                saveUtility.SaveGraph(_fileName);
+            else
+                saveUtility.LoadGraph(_fileName);
         }
-
-        var saveUtility = GraphSaveUtility.GetInstance(_graphView);
-        if(save)
-            saveUtility.SaveGraph(_fileName);
         else
         {
-            saveUtility.LoadGraph(_fileName);
+            EditorUtility.DisplayDialog("Invalid File name", "Please Enter a valid filename", "OK");
         }
     }
 

@@ -9,8 +9,8 @@ using UnityEngine.UIElements;
 
 public class DialogueGraphView : GraphView
 {
-    public readonly Vector2 defaultNodeSize = new Vector2(150, 200);
-
+    public readonly Vector2 defaultNodeSize = new Vector2(200, 150);
+    public DialogueNode EntryPointNode;
     private NodeSearchWindow _searchWindow;
     
     public DialogueGraphView(EditorWindow editorWindow)
@@ -21,6 +21,7 @@ public class DialogueGraphView : GraphView
         this.AddManipulator(new ContentDragger());
         this.AddManipulator(new SelectionDragger());
         this.AddManipulator(new RectangleSelector());
+        this.AddManipulator(new FreehandSelector());
 
         var grid = new GridBackground();
         Insert(0, grid);
@@ -95,7 +96,7 @@ public class DialogueGraphView : GraphView
         var inputPort = GeneratePort(dialogueNode, Direction.Input, Port.Capacity.Multi);
         inputPort.portName = "Input";
         dialogueNode.inputContainer.Add(inputPort);
-
+    
         dialogueNode.styleSheets.Add(Resources.Load<StyleSheet>("Node"));
         
         var button = new Button(clickEvent: () =>
@@ -104,7 +105,7 @@ public class DialogueGraphView : GraphView
         });
         button.text = "New Choice";
         dialogueNode.titleContainer.Add(button);
-
+    
         var textField = new TextField(string.Empty);
         textField.RegisterValueChangedCallback(evt =>
         {
@@ -121,10 +122,51 @@ public class DialogueGraphView : GraphView
         
         return dialogueNode;
     }
+    
+    public DialogueNode createDialogueNode(string nodeName, Vector2 position)
+    {
+        var tempDialogueNode = new DialogueNode()
+        {
+            title = nodeName,
+            DialogueText = nodeName,
+            GUID = Guid.NewGuid().ToString()
+        };
+        tempDialogueNode.styleSheets.Add(Resources.Load<StyleSheet>("Node"));
+        var inputPort = GetPortInstance(tempDialogueNode, Direction.Input, Port.Capacity.Multi);
+        inputPort.portName = "Input";
+        tempDialogueNode.inputContainer.Add(inputPort);
+        tempDialogueNode.RefreshExpandedState();
+        tempDialogueNode.RefreshPorts();
+        tempDialogueNode.SetPosition(new Rect(position,
+            defaultNodeSize)); //To-Do: implement screen center instantiation positioning
+
+        var textField = new TextField("");
+        textField.RegisterValueChangedCallback(evt =>
+        {
+            tempDialogueNode.DialogueText = evt.newValue;
+            tempDialogueNode.title = evt.newValue;
+        });
+        textField.SetValueWithoutNotify(tempDialogueNode.title);
+        tempDialogueNode.mainContainer.Add(textField);
+
+        var button = new Button(() => { AddChoicePort(tempDialogueNode); })
+        {
+            text = "Add Choice"
+        };
+        tempDialogueNode.titleButtonContainer.Add(button);
+        return tempDialogueNode;
+    }
+    
+    private Port GetPortInstance(DialogueNode node, Direction nodeDirection,
+        Port.Capacity capacity = Port.Capacity.Single)
+    {
+        return node.InstantiatePort(Orientation.Horizontal, nodeDirection, capacity, typeof(float));
+    }
+
 
     public void AddChoicePort(DialogueNode dialogueNode, string overriddenPortName = "")
     {
-        var generatePort = GeneratePort(dialogueNode, Direction.Output);
+        var generatePort = GetPortInstance(dialogueNode, Direction.Output);
 
         var oldLabel = generatePort.contentContainer.Q<Label>("type");
         generatePort.contentContainer.Remove(oldLabel);
@@ -170,3 +212,4 @@ public class DialogueGraphView : GraphView
         dialogueNode.RefreshExpandedState();
     }
 }
+
