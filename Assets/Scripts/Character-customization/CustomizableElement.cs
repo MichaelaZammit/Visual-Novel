@@ -7,6 +7,31 @@ using Random = UnityEngine.Random;
 
 public class CustomizableElement : MonoBehaviour
 {
+    [SerializeField] public CustomizationType[] requiredCustomizationTypes;
+
+    // Method to check for missing customization types
+    public void CheckForMissingCustomizationTypes()
+    {
+        bool missing = false;
+        foreach (var customizationType in requiredCustomizationTypes)
+        {
+            if (customizationType == null)
+            {
+                Debug.LogWarning("Missing scriptable object: " + customizationType.name, this);
+                missing = true;
+            }
+        }
+
+        if (missing)
+        {
+            Debug.LogWarning("Some scriptable objects are missing from the character. Please ensure all required customization types are assigned.", this);
+        }
+        else
+        {
+            Debug.Log("All required scriptable objects are assigned to the character.", this);
+        }
+    }
+
     [SerializeField] 
     private CustomizationType _type;
     

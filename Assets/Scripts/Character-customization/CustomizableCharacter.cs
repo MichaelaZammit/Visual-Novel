@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class CustomizableCharacter : MonoBehaviour
 {
+    
     [SerializeField] private CustomizedCharacter _character;
     
     [ContextMenu("Randomize All")]
