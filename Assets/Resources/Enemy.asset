@@ -157,11 +157,6 @@ MonoBehaviour:
   - PortName: Good night, poockie!
     TargetNodeGuid: df2cc90b-fc79-4dfb-b876-4b6cd47c7390
     BaseNodeGUID: e54d6453-0ee2-415e-99b6-e4ee12f372fe
-  - PortName: The next day, I went to school, and I spent the whole day thinking
-      about him. I started smiling without even realizing it, until my classmate
-      pointed it out.
-    TargetNodeGuid: 01477817-8c86-4f52-9735-91b6f10a5c23
-    BaseNodeGUID: df2cc90b-fc79-4dfb-b876-4b6cd47c7390
   - PortName: When I went home I couldn't wait to message him agein. Before I knew
       it, the laptop was open and I was sending a message.
     TargetNodeGuid: 0382466e-5644-4912-bf9d-85c3108769cc
@@ -193,18 +188,6 @@ MonoBehaviour:
   - PortName: Let\u2019s play a game!
     TargetNodeGuid: 6058af02-a883-46ac-8f7b-69d2f4b779b1
     BaseNodeGUID: 236c75ac-bd39-464f-9681-1453b08a576a
-  - PortName: Truth or Dare
-    TargetNodeGuid: 6286fa99-0caf-4d5d-9728-ea687212c951
-    BaseNodeGUID: 6058af02-a883-46ac-8f7b-69d2f4b779b1
-  - PortName: Ok! :)
-    TargetNodeGuid: d4be0b0e-3c24-444e-abce-e14d925a932e
-    BaseNodeGUID: 6286fa99-0caf-4d5d-9728-ea687212c951
-  - PortName: Ok?!
-    TargetNodeGuid: d4be0b0e-3c24-444e-abce-e14d925a932e
-    BaseNodeGUID: 6286fa99-0caf-4d5d-9728-ea687212c951
-  - PortName: Sure :)
-    TargetNodeGuid: d4be0b0e-3c24-444e-abce-e14d925a932e
-    BaseNodeGUID: 6286fa99-0caf-4d5d-9728-ea687212c951
   - PortName: So...who starts?
     TargetNodeGuid: 83c253a1-c6b3-43e1-8f2c-c7ccce0d751b
     BaseNodeGUID: d4be0b0e-3c24-444e-abce-e14d925a932e
@@ -220,15 +203,6 @@ MonoBehaviour:
   - PortName: Let's go on call.
     TargetNodeGuid: 99b37a7e-21ed-40b2-bfee-64326b160776
     BaseNodeGUID: 9d03a6e7-56d4-4d0d-ac81-57b2acc61d35
-  - PortName: That\u2019s the lamest dare I\u2019ve ever heard.
-    TargetNodeGuid: c69c6838-3c3f-4b3b-93b0-27663e751565
-    BaseNodeGUID: 99b37a7e-21ed-40b2-bfee-64326b160776
-  - PortName: Fine...
-    TargetNodeGuid: c41ae585-3e9b-4de1-bf2c-da0ca05558d5
-    BaseNodeGUID: c69c6838-3c3f-4b3b-93b0-27663e751565
-  - PortName: My turn, Truth or Dare?
-    TargetNodeGuid: 5f1b9c93-eb67-4441-a3ec-6ffd5e48c0ac
-    BaseNodeGUID: c41ae585-3e9b-4de1-bf2c-da0ca05558d5
   - PortName: I guess I will chose the same as you, Dare
     TargetNodeGuid: 6c47e151-ae5a-4052-9b2c-aa07a38ae060
     BaseNodeGUID: 5f1b9c93-eb67-4441-a3ec-6ffd5e48c0ac
@@ -460,6 +434,29 @@ MonoBehaviour:
       and freedom.
     TargetNodeGuid: dbc16f33-3fd2-4617-89ce-e9121455faf0
     BaseNodeGUID: bfbf279f-5e95-4ee0-afb1-0250b492710e
+  - PortName: Truth or Dare
+    TargetNodeGuid: edc3699d-ab1b-4525-8d77-53dbfedc8d82
+    BaseNodeGUID: 6058af02-a883-46ac-8f7b-69d2f4b779b1
+  - PortName: Yeah!
+    TargetNodeGuid: d4be0b0e-3c24-444e-abce-e14d925a932e
+    BaseNodeGUID: edc3699d-ab1b-4525-8d77-53dbfedc8d82
+  - PortName: Yes :)
+    TargetNodeGuid: d4be0b0e-3c24-444e-abce-e14d925a932e
+    BaseNodeGUID: edc3699d-ab1b-4525-8d77-53dbfedc8d82
+  - PortName: That\u2019s the lamest dare I\u2019ve ever heard.
+    TargetNodeGuid: c69c6838-3c3f-4b3b-93b0-27663e751565
+    BaseNodeGUID: 99b37a7e-21ed-40b2-bfee-64326b160776
+  - PortName: The next day, I went to school, and I spent the whole day thinking
+      about him. I started smiling without even realizing it, until my classmate
+      pointed it out.
+    TargetNodeGuid: 01477817-8c86-4f52-9735-91b6f10a5c23
+    BaseNodeGUID: df2cc90b-fc79-4dfb-b876-4b6cd47c7390
+  - PortName: Fine
+    TargetNodeGuid: c41ae585-3e9b-4de1-bf2c-da0ca05558d5
+    BaseNodeGUID: c69c6838-3c3f-4b3b-93b0-27663e751565
+  - PortName: My turn, Truth or Dare?
+    TargetNodeGuid: 5f1b9c93-eb67-4441-a3ec-6ffd5e48c0ac
+    BaseNodeGUID: c41ae585-3e9b-4de1-bf2c-da0ca05558d5
   DialogueNodeData:
   - Guid: 633ef7a7-33b2-4e1e-8496-34e3f2b4c650
     DialogueText: My POV
@@ -575,9 +572,6 @@ MonoBehaviour:
   - Guid: e54d6453-0ee2-415e-99b6-e4ee12f372fe
     DialogueText: Unknown
     Position: {x: 15990.5, y: 200}
-  - Guid: df2cc90b-fc79-4dfb-b876-4b6cd47c7390
-    DialogueText: My POV
-    Position: {x: 16272, y: 305.5}
   - Guid: 01477817-8c86-4f52-9735-91b6f10a5c23
     DialogueText: My POV
     Position: {x: 17228.5, y: 305.5}
@@ -605,12 +599,6 @@ MonoBehaviour:
   - Guid: 236c75ac-bd39-464f-9681-1453b08a576a
     DialogueText: Unknown
     Position: {x: 19988, y: 305.5}
-  - Guid: 6058af02-a883-46ac-8f7b-69d2f4b779b1
-    DialogueText: Unknown
-    Position: {x: 20232.5, y: 305.5}
-  - Guid: 6286fa99-0caf-4d5d-9728-ea687212c951
-    DialogueText: You
-    Position: {x: 20447.5, y: 305.5}
   - Guid: d4be0b0e-3c24-444e-abce-e14d925a932e
     DialogueText: You
     Position: {x: 20647, y: 305.5}
@@ -626,15 +614,6 @@ MonoBehaviour:
   - Guid: 9d03a6e7-56d4-4d0d-ac81-57b2acc61d35
     DialogueText: You
     Position: {x: 21556.5, y: 305.5}
-  - Guid: 99b37a7e-21ed-40b2-bfee-64326b160776
-    DialogueText: Unknown
-    Position: {x: 21794.5, y: 305.5}
-  - Guid: c69c6838-3c3f-4b3b-93b0-27663e751565
-    DialogueText: Unknown
-    Position: {x: 22158.5, y: 305.5}
-  - Guid: c41ae585-3e9b-4de1-bf2c-da0ca05558d5
-    DialogueText: Unknown
-    Position: {x: 22370.5, y: 305.5}
   - Guid: 5f1b9c93-eb67-4441-a3ec-6ffd5e48c0ac
     DialogueText: You
     Position: {x: 22650.5, y: 305.5}
@@ -842,3 +821,22 @@ MonoBehaviour:
   - Guid: dbc16f33-3fd2-4617-89ce-e9121455faf0
     DialogueText: The End
     Position: {x: 51574, y: 548.5}
+  - Guid: 6058af02-a883-46ac-8f7b-69d2f4b779b1
+    DialogueText: Unknown
+    Position: {x: 20220, y: 305.5}
+  - Guid: edc3699d-ab1b-4525-8d77-53dbfedc8d82
+    DialogueText: You
+    Position: {x: 20456, y: 305.5}
+  - Guid: 99b37a7e-21ed-40b2-bfee-64326b160776
+    DialogueText: Unknown
+    Position: {x: 21789, y: 305.5}
+  - Guid: df2cc90b-fc79-4dfb-b876-4b6cd47c7390
+    DialogueText: My POV
+    Position: {x: 16272, y: 305.5}
+  - Guid: c69c6838-3c3f-4b3b-93b0-27663e751565
+    DialogueText: Unknown
+    Position: {x: 22152, y: 305.5}
+  - Guid: c41ae585-3e9b-4de1-bf2c-da0ca05558d5
+    DialogueText: Unknown
+    Position: {x: 22356, y: 305.5}
+  ExposedProperties: []

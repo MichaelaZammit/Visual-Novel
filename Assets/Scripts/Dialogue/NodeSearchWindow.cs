@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEditor.Experimental.GraphView;
@@ -18,7 +17,7 @@ public class NodeSearchWindow : ScriptableObject, ISearchWindowProvider
 
         // Indentation hack for search window as a transparent icon
         _indentationIcon = new Texture2D(1, 1);
-        _indentationIcon.SetPixel(0, 0, new Color(0, 0, 0, 0)); // Don't forget to set the alpha to 0 as well
+        _indentationIcon.SetPixel(0, 0, new Color(0, 0, 0, 0));
         _indentationIcon.Apply();
     }
     
@@ -30,18 +29,17 @@ public class NodeSearchWindow : ScriptableObject, ISearchWindowProvider
             new SearchTreeGroupEntry(new GUIContent("Dialogue Node"), 1),
             new SearchTreeEntry(new GUIContent("Dialogue Node", _indentationIcon))
             {
-                userData = new DialogueNode(),level = 2
+                userData = new DialogueNode(), level = 2
             }
         };
         return tree;
     }
 
-    public bool OnSelectEntry(SearchTreeEntry SearchTreeEntry, SearchWindowContext context)
+    public bool OnSelectEntry(SearchTreeEntry searchTreeEntry, SearchWindowContext context)
     {
-        var worldMousePosition = _window.rootVisualElement.ChangeCoordinatesTo(_window.rootVisualElement.parent,
-            context.screenMousePosition - _window.position.position);
+        var worldMousePosition = _window.rootVisualElement.ChangeCoordinatesTo(_window.rootVisualElement.parent, context.screenMousePosition - _window.position.position);
         var localMousePosition = _graphView.contentContainer.WorldToLocal(worldMousePosition);
-        switch (SearchTreeEntry.userData)
+        switch (searchTreeEntry.userData)
         {
             case DialogueNode dialogueNode: 
                 _graphView.CreateNode("Dialogue Node", localMousePosition);

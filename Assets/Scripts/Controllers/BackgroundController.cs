@@ -1,26 +1,43 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class BackgroundController : MonoBehaviour
 {
-
     public bool isSwitched = false;
     public Image background1;
     public Image background2;
     public Animator animator;
 
-    public void SwitchImage(Sprite sprite)
+    public Sprite[] backgrounds; // Array to store different background sprites
+
+    private int currentIndex = 0; // Index to keep track of the current background
+
+    // Start is called before the first frame update
+    void Start()
     {
+        // Set the initial background if you have any default image
+        if (backgrounds.Length > 0)
+        {
+            SetImage(backgrounds[currentIndex]);
+        }
+    }
+
+    public void SwitchImage()
+    {
+        currentIndex++;
+        if (currentIndex >= backgrounds.Length)
+        {
+            currentIndex = 0; // Reset index if it exceeds array length
+        }
+
         if (!isSwitched)
         {
-            background2.sprite = sprite;
+            background2.sprite = backgrounds[currentIndex];
             animator.SetTrigger("SwitchFirst");
         }
         else
         {
-            background1.sprite = sprite;
+            background1.sprite = backgrounds[currentIndex];
             animator.SetTrigger("SwitchSecond");
         }
         isSwitched = !isSwitched;

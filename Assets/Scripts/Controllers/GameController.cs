@@ -1,22 +1,20 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
     public StoryScene currentScene;
     public TextBoxController bottomBar;
-    public BackgroundController backgroundController;
+    public BackgroundController backgroundController; // Assuming you have a BackgroundController script
 
     void Start()
     {
         bottomBar.PlayScene(currentScene);
-        backgroundController.SetImage(currentScene.background);
+        backgroundController.SetImage(currentScene.Screen_1);
     }
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
         {
             if (bottomBar.IsCompleted())
             {
@@ -24,7 +22,7 @@ public class GameController : MonoBehaviour
                 {
                     currentScene = currentScene.nextScene;
                     bottomBar.PlayScene(currentScene);
-                    backgroundController.SwitchImage(currentScene.background);
+                    backgroundController.SetImage(currentScene.Screen_1);
                 }
                 else
                 {
