@@ -6,6 +6,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using Subtegral.DialogueSystem.DataContainers;
+using UnityEngine.SceneManagement;
 
 namespace Subtegral.DialogueSystem.Runtime
 {
@@ -103,6 +104,11 @@ namespace Subtegral.DialogueSystem.Runtime
                 backGround4.enabled = false;
                 backGround5.enabled = true;
                 Debug.Log("number 5");
+            }
+            else if (backNum == 5)
+            {
+                SceneManager.LoadScene(0);
+                Debug.Log("number 6");
             }
             return backNum;
         }

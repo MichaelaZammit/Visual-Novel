@@ -997,6 +997,6 @@ MonoBehaviour:
   - NodeGUID: 1bb84d01-427f-47d1-ad30-fc4be02e7a76
     DialogueText: 'My POV '
     Position: {x: 61812, y: -357.5}
-    BackgroundNumber: 4
+    BackgroundNumber: 5
   ExposedProperties: []
   CommentBlockData: []
