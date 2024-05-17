@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78b3fd9154634ebdb8c8a48960b9a16a, type: 3}
+  m_Name: sad
+  m_EditorClassIdentifier: 
+  NodeLinks:
+  - BaseNodeGUID: 661b981e-c387-43e9-b63c-858c9377812a
+    PortName: Next
+    TargetNodeGUID: 917d4cc8-6eb0-41b4-a1d1-adc5d7f382e7
+  - BaseNodeGUID: 917d4cc8-6eb0-41b4-a1d1-adc5d7f382e7
+    PortName: hi
+    TargetNodeGUID: daf386fc-33b3-492c-8ed8-180713ff67ba
+  - BaseNodeGUID: daf386fc-33b3-492c-8ed8-180713ff67ba
+    PortName: yes
+    TargetNodeGUID: 874bcb52-1cab-482b-8bbd-cc8e9caf221b
+  - BaseNodeGUID: daf386fc-33b3-492c-8ed8-180713ff67ba
+    PortName: no
+    TargetNodeGUID: 3cfd4358-971e-4db8-a9d6-227e008c2a46
+  - BaseNodeGUID: 3cfd4358-971e-4db8-a9d6-227e008c2a46
+    PortName: ok
+    TargetNodeGUID: 41f97bec-8bdc-4d17-b721-06920f855f7f
+  - BaseNodeGUID: 874bcb52-1cab-482b-8bbd-cc8e9caf221b
+    PortName: no
+    TargetNodeGUID: 91b5ddab-3caa-4d8f-ac21-ee8d255cf099
+  DialogueNodeData:
+  - NodeGUID: 917d4cc8-6eb0-41b4-a1d1-adc5d7f382e7
+    DialogueText: hi
+    Position: {x: 332.8, y: 214.4}
+  - NodeGUID: daf386fc-33b3-492c-8ed8-180713ff67ba
+    DialogueText: want to play
+    Position: {x: 674.4, y: 179.2}
+  - NodeGUID: 874bcb52-1cab-482b-8bbd-cc8e9caf221b
+    DialogueText: gay
+    Position: {x: 978.4, y: 141.59999}
+  - NodeGUID: 3cfd4358-971e-4db8-a9d6-227e008c2a46
+    DialogueText: Not gay
+    Position: {x: 1006.4, y: 325.6}
+  - NodeGUID: 41f97bec-8bdc-4d17-b721-06920f855f7f
+    DialogueText: lol
+    Position: {x: 1261.6, y: 297.6}
+  - NodeGUID: 91b5ddab-3caa-4d8f-ac21-ee8d255cf099
+    DialogueText: gjat
+    Position: {x: 1271.2, y: 150.4}
+  ExposedProperties: []
+  CommentBlockData: []
