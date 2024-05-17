@@ -3,23 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+// MonoBehaviour for controlling game elements
 public class Control : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
+    // Method to reset the character
     public void ResetTheCharacter()
     {
+        // Reload the current scene
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        // Print a message to indicate the button is working
         print("The button is working.");
     }
 }

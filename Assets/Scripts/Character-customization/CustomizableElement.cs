@@ -7,6 +7,7 @@ using Random = UnityEngine.Random;
 
 public class CustomizableElement : MonoBehaviour
 {
+    // Required customization types for this element
     [SerializeField] public CustomizationType[] requiredCustomizationTypes;
 
     // Method to check for missing customization types
@@ -32,48 +33,55 @@ public class CustomizableElement : MonoBehaviour
         }
     }
 
+    // Current customization type
     [SerializeField] public CustomizationType _type;
-    
+
+    // SpriteRenderer component for displaying the sprite
     [SerializeField] public SpriteRenderer _spriteRenderer;
-    
-    [SerializeField] 
-    private List<PositionedSprite> _spriteOptions;
 
-    [field:SerializeField]
-    public int SpriteIndex { get; private set; }
-    
-    [SerializeField]
-    private List<Color> _colorOptions ;
+    // List of sprite options for customization
+    [SerializeField] private List<PositionedSprite> _spriteOptions;
 
-    [field: SerializeField] 
-    public int ColorIndex;
+    // Current index of the sprite
+    [field: SerializeField] public int SpriteIndex { get; private set; }
 
+    // List of color options for customization
+    [SerializeField] private List<Color> _colorOptions;
+
+    // Current index of the color
+    [field: SerializeField] public int ColorIndex;
+
+    // Property to get the current color
     public Color CurrentColor => _colorOptions.Count == 0 ? Color.white : _colorOptions[ColorIndex];
 
-        [ContextMenu("Next Sprite")]
+    // Context menu item to switch to the next sprite
+    [ContextMenu("Next Sprite")]
     public PositionedSprite NextSprite()
     {
-        SpriteIndex = Mathf.Min(SpriteIndex + 1,_spriteOptions.Count -1);
+        SpriteIndex = Mathf.Min(SpriteIndex + 1, _spriteOptions.Count - 1);
         UpdateSprite();
         return _spriteOptions[SpriteIndex];
     }
 
+    // Context menu item to switch to the previous sprite
     [ContextMenu("Previous Sprite")]
     public PositionedSprite PreviousSprite()
     {
-        SpriteIndex = Mathf.Max(SpriteIndex - 1,0);
+        SpriteIndex = Mathf.Max(SpriteIndex - 1, 0);
         UpdateSprite();
         return _spriteOptions[SpriteIndex];
     }
 
-    [ContextMenu("Next Color")] 
+    // Context menu item to switch to the next color
+    [ContextMenu("Next Color")]
     public Color NextColor()
     {
-        ColorIndex = Mathf.Min(ColorIndex + 1,_colorOptions.Count -1);
+        ColorIndex = Mathf.Min(ColorIndex + 1, _colorOptions.Count - 1);
         UpdateColor();
         return _colorOptions[ColorIndex];
     }
 
+    // Context menu item to switch to the previous color
     [ContextMenu("Previous Color")]
     public Color PreviousColor()
     {
@@ -82,26 +90,30 @@ public class CustomizableElement : MonoBehaviour
         return _colorOptions[ColorIndex];
     }
 
+    // Context menu item to randomize the sprite and color
     [ContextMenu("Randomize")]
     public void Randomize()
     {
-        SpriteIndex = Random.Range(0, _spriteOptions.Count - 1);
-        ColorIndex = Random.Range(0, _colorOptions.Count - 1);
+        SpriteIndex = Random.Range(0, _spriteOptions.Count);
+        ColorIndex = Random.Range(0, _colorOptions.Count);
         UpdateSprite();
         UpdateColor();
     }
 
+    // Context menu item to update the position modifier of the sprite
     [ContextMenu("Update Position Modifier")]
     public void UpdateSpritePositionModifier()
     {
         _spriteOptions[SpriteIndex].PositionModifier = transform.localPosition;
     }
 
+    // Get the current customization data
     public CustomizationData GetCustomizationData()
     {
         return new CustomizationData(_type, _spriteOptions[SpriteIndex], _spriteRenderer.color);
     }
-    
+
+    // Update the sprite based on the current SpriteIndex
     private void UpdateSprite()
     {
         if (_spriteOptions.Count == 0) return;
@@ -112,6 +124,7 @@ public class CustomizableElement : MonoBehaviour
         transform.localPosition = positionedSprite.PositionModifier;
     }
 
+    // Update the color based on the current ColorIndex
     private void UpdateColor()
     {
         if (_colorOptions.Count == 0) return;
@@ -120,6 +133,7 @@ public class CustomizableElement : MonoBehaviour
         _spriteRenderer.color = newColor;
     }
 
+    // Enumerator not implemented
     public IEnumerator GetEnumerator()
     {
         throw new NotImplementedException();
