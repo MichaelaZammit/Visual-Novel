@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using Classes;
+using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 
@@ -15,7 +15,9 @@ namespace Managers
         public static readonly Vector3 AnnotationOffset = Vector3.right * (CapSize + CapMargin);
         
         // List of annotations to be displayed in the scene
-        public List<Annotation> annotations;
+        [SerializeField]
+        public List<AnnotationUtility.Annotation> annotations;
+
 
         // This method is called when the script is reset or added to a GameObject
         private void Reset()
