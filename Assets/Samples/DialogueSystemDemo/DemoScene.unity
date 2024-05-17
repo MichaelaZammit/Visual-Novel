@@ -405,7 +405,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 10b2b5244b2af4714adb0181f402c910, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ae02bbf58f1fe4b73b52ce9761919aae, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -800,6 +800,11 @@ MonoBehaviour:
   dialogueText: {fileID: 1818617936}
   choicePrefab: {fileID: 3102500559854669817, guid: f77c89383fd59cd47a1921c9684d4122, type: 3}
   buttonContainer: {fileID: 1172275448}
+  backGround1: {fileID: 250357692}
+  backGround2: {fileID: 1757801974}
+  backGround3: {fileID: 595985516}
+  backGround4: {fileID: 571007494}
+  backGround5: {fileID: 480114312}
 --- !u!1 &998751766
 GameObject:
   m_ObjectHideFlags: 0
@@ -938,8 +943,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 113, y: -184}
-  m_SizeDelta: {x: 627.8687, y: 170.6101}
+  m_AnchoredPosition: {x: 120.89, y: -184}
+  m_SizeDelta: {x: 590.89, y: 170.6101}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1172275449
 MonoBehaviour:
